@@ -3377,7 +3377,7 @@ input, select, textarea {
 
 		#header > .title {
 			border: 0;
-			color: #ffffff;
+			color: #ebc7c7;
 			display: block;
 			font-size: 1.25em;
 			font-weight: bold;
@@ -3483,6 +3483,24 @@ input, select, textarea {
 				padding-top: 0;
 			}
 
+		}
+
+		.quiz-container {
+			text-align: center;
+			margin: 20px;
+		}
+		
+		.question-container {
+			max-width: 500px;
+			margin: 0 auto;
+		}
+		
+		button {
+			padding: 10px 20px;
+			background-color: #569ac7;
+			color: #fff;
+			border: none;
+			cursor: pointer;
 		}
 
 	#header + #wrapper > .wrapper > .inner {
