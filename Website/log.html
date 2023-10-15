@@ -114,8 +114,15 @@
             const canvas = document.getElementById('barChart');
             const ctx = canvas.getContext('2d');
             const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const labels = [];
+            
+            // Repeat days of the week labels to fill the chart
+            for (let i = 0; i < jsonArray.length; i++) {
+                labels.push(daysOfWeek[i % 7]);
+            }
+
             const data = {
-                labels: daysOfWeek,
+                labels: labels,
                 datasets: [{
                     label: '',
                     data: jsonArray,
@@ -125,7 +132,7 @@
             const options = {
                 scales: {
                     y: {
-                        min: 1,  // Set the minimum value for the y-axis
+                        min: 0,  // Set the minimum value for the y-axis
                         max: 10, // Set the maximum value for the y-axis
                         beginAtZero: true
                     },
