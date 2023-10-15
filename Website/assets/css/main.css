@@ -1992,6 +1992,13 @@ input, select, textarea {
 		background: rgba(255, 255, 255, 0.05);
 		margin: 0 0 2em 0;
 	}
+		.mood-box-header{
+			display:flex;
+			justify-content: center;
+			color: white;
+			font-size: 30px;
+		}
+
 
 		.features section {
 			padding: 3.5em 3em 1em 7em ;
