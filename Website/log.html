@@ -42,7 +42,19 @@
                             
 							<h1 class="major" style="margin-bottom: 30px; color: white; font-size: 25px;">Mood Log: A visual representation of your journey to wellbeing</h1>
 							<div id="output"></div>
-                            <ul class="mood-box-header">uh</ul>
+                            <ul class="mood-box-header">How would you rate today?</ul>
+                            <div class="button-container">
+                                <button class="number-button" id="button1">1</button>
+                                <button class="number-button" id="button2">2</button>
+                                <button class="number-button" id="button3">3</button>
+                                <button class="number-button" id="button4">4</button>
+                                <button class="number-button" id="button5">5</button>
+                                <button class="number-button" id="button6">6</button>
+                                <button class="number-button" id="button7">7</button>
+                                <button class="number-button"id="button8">8</button>
+                                <button class="number-button" id="button9">9</button>
+                                <button class="number-button" id="button10">10</button>
+                            </div>
 						</div>
 					</section>
 
@@ -59,16 +71,50 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
+            
+            
+            
             <script>
-                const jsonString = '[1, 2, 3, 4, 5]';
-                const jsonArray = JSON.parse(jsonString);
-                jsonArray.push(6);
-                const updatedJsonString = JSON.stringify(jsonArray);
-                
-                // Display the result
-                document.getElementById('output').textContent = updatedJsonString;
+                // Function to get the JSON array from localStorage
+                function getStoredArray() {
+                    const storedArray = localStorage.getItem('jsonArray');
+                    return storedArray ? JSON.parse(storedArray) : [];
+                }
+        
+                // Function to save the JSON array to localStorage
+                function saveArrayToLocalStorage(array) {
+                    localStorage.setItem('jsonArray', JSON.stringify(array));
+                }
+        
+                // JavaScript code to handle JSON array
+                let jsonArray = getStoredArray();  // Initialize the array with stored values
+        
+                // Function to add a number to the JSON array
+                function addNumber(number) {
+                    jsonArray.push(number);
+                    saveArrayToLocalStorage(jsonArray); // Save the updated array
+                    displayArray();
+                }
+        
+                // Function to display the JSON array
+                function displayArray() {
+                    const outputDiv = document.getElementById('output');
+                    outputDiv.textContent = JSON.stringify(jsonArray, null, 2);
+                }
+        
+                // Add event listeners to the buttons
+                for (let i = 1; i <= 10; i++) {
+                    const button = document.getElementById(`button${i}`);
+                    button.addEventListener('click', () => addNumber(i));
+                }
+        
+                // Display the initially stored array
+                displayArray();
             </script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
+			
+            
+            
+            <script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>

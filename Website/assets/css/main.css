@@ -233,7 +233,27 @@ input, select, textarea {
 	h6 {
 		font-size: 0.6em;
 	}
+	.button-container {
+		display: flex;
+		justify-content: space-between;
+		padding: 0px;
+	}
+	.number-button {
+        background-color: #261c3e;
+        color: #fff;
+        border: none;
+		padding: 0;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+		vertical-align: center;
+		justify-content: center;
+		line-height: 1;
+    }
 
+    .number-button:hover {
+        background-color: #43316d;
+    }
 	@media screen and (max-width: 736px) {
 
 		h1 {
