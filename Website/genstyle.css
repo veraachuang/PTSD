@@ -46,7 +46,7 @@
 .navbar a.active {
     color: #fff; /* White text color for the active link */
 }
-
+ 
 body {
     background-color: #7E6BF1; /* Purple background color */
     font-family: "Courier New", monospace;
