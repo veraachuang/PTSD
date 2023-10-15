@@ -276,7 +276,7 @@
                 h4,
                 h5,
                 h6 {
-                    color: #ecc735;
+                    color: #ffffff;
                     font-weight: bold;
                     line-height: 1.5;
                     margin: 0 0 0.5em 0;
@@ -2277,22 +2277,22 @@
                     border-radius: 100%;
                 }
                 
-                ::-webkit-input-placeholder {
+                 ::-webkit-input-placeholder {
                     color: rgba(255, 255, 255, 0.35) !important;
                     opacity: 1.0;
                 }
                 
-                :-moz-placeholder {
+                 :-moz-placeholder {
                     color: rgba(255, 255, 255, 0.35) !important;
                     opacity: 1.0;
                 }
                 
-                ::-moz-placeholder {
+                 ::-moz-placeholder {
                     color: rgba(255, 255, 255, 0.35) !important;
                     opacity: 1.0;
                 }
                 
-                :-ms-input-placeholder {
+                 :-ms-input-placeholder {
                     color: rgba(255, 255, 255, 0.35) !important;
                     opacity: 1.0;
                 }
