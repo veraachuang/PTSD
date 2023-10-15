@@ -30,7 +30,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="generic.html">Survey</a></li>
                 <li><a href="log.html" class="active">Mood Log</a></li>
-                <li><a href="resources.html">Health Resources</a></li>
+                <li><a href="resources.html">Resources</a></li>
             </ul>
         </nav>
     </header>
@@ -46,7 +46,7 @@
 
 
                 <div class="mood-box">
-                    <ul class="mood-box-header">How would you rate today? Come back tomorrow to see how it compares</ul>
+                    <ul class="mood-box-header">How would you rate today?</ul>
                 </div>
                 <div class="button-container">
                     
@@ -113,8 +113,16 @@
         function updateChart() {
             const canvas = document.getElementById('barChart');
             const ctx = canvas.getContext('2d');
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const labels = [];
+            
+            // Repeat days of the week labels to fill the chart
+            for (let i = 0; i < jsonArray.length; i++) {
+                labels.push(daysOfWeek[i % 7]);
+            }
+
             const data = {
-                labels: jsonArray.map((value, index) => index + 1),
+                labels: labels,
                 datasets: [{
                     label: '',
                     data: jsonArray,
@@ -124,7 +132,17 @@
             const options = {
                 scales: {
                     y: {
+                        min: 0,  // Set the minimum value for the y-axis
+                        max: 10, // Set the maximum value for the y-axis
                         beginAtZero: true
+                    },
+                    x: {
+                        ticks: {
+                            color: 'white',  // Set label color to white
+                            font: {
+                                size: 14  // Set label font size
+                            }
+                        }
                     }
                 }
 
@@ -160,9 +178,11 @@
         for (let i = 1; i <= 10; i++) {
             const button = document.getElementById(`button${i}`);
             button.addEventListener('click', () => {
+                location.reload();
                 addNumber(i);
                 updateChart(); // Update the chart on every button press
                 refreshPage();
+                location.reload();
             });
         }
 
@@ -170,6 +190,7 @@
         displayArray();
         updateChart();
         refreshPage();
+        location.reload(true);
         
     </script>
 
@@ -181,6 +202,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/chatbot.js"></script>
 
 </body>
 
