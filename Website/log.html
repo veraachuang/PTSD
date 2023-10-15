@@ -41,8 +41,23 @@
 						<div class="inner">
                             
 							<h1 class="major" style="margin-bottom: 30px; color: white; font-size: 25px;">Mood Log: A visual representation of your journey to wellbeing</h1>
-							<div id="output"></div>
-                            <ul class="mood-box-header">uh</ul>
+							
+                            
+                            <div class="mood-box"><ul class="mood-box-header">How would you rate today?</ul></div>
+                            <div class="button-container">
+                                <button class="number-button" id="button1">1</button>
+                                <button class="number-button" id="button2">2</button>
+                                <button class="number-button" id="button3">3</button>
+                                <button class="number-button" id="button4">4</button>
+                                <button class="number-button" id="button5">5</button>
+                                <button class="number-button" id="button6">6</button>
+                                <button class="number-button" id="button7">7</button>
+                                <button class="number-button"id="button8">8</button>
+                                <button class="number-button" id="button9">9</button>
+                                <button class="number-button" id="button10">10</button>
+                            </div>
+                            <canvas id="barChart" width="400" height="200"><div id="output"></div></canvas>
+                            
 						</div>
 					</section>
 
@@ -59,16 +74,82 @@
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
+            
+            
+            
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script>
-                const jsonString = '[1, 2, 3, 4, 5]';
-                const jsonArray = JSON.parse(jsonString);
-                jsonArray.push(6);
-                const updatedJsonString = JSON.stringify(jsonArray);
-                
-                // Display the result
-                document.getElementById('output').textContent = updatedJsonString;
+                // JavaScript code to handle JSON array
+                const jsonArray = getStoredArray();  // Initialize the array with stored values
+        
+                // Function to add a number to the JSON array
+                function addNumber(number) {
+                    jsonArray.push(number);
+                    saveArrayToLocalStorage(jsonArray); // Save the updated array
+                    displayArray();
+                    updateChart();
+                }
+        
+                // Function to display the JSON array
+                function displayArray() {
+                    const outputDiv = document.getElementById('output');
+                    outputDiv.textContent = JSON.stringify(jsonArray, null, 2);
+                }
+        
+                // Function to create and update the bar chart
+                function updateChart() {
+                    const canvas = document.getElementById('barChart');
+                    const ctx = canvas.getContext('2d');
+                    const data = {
+                        labels: jsonArray.map((value, index) => index + 1),
+                        datasets: [{
+                            label: '',
+                            data: jsonArray,
+                            backgroundColor: 'rgba(38, 28, 62, 1)'
+                        }]
+                    };
+                    const options = {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    };
+                    const barChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: data,
+                        options: options
+                    });
+                }
+        
+                // Function to get the JSON array from localStorage
+                function getStoredArray() {
+                    const storedArray = localStorage.getItem('jsonArray');
+                    return storedArray ? JSON.parse(storedArray) : [];
+                }
+        
+                // Function to save the JSON array to localStorage
+                function saveArrayToLocalStorage(array) {
+                    localStorage.setItem('jsonArray', JSON.stringify(array));
+                }
+        
+                // Add event listeners to the buttons
+                for (let i = 1; i <= 10; i++) {
+                    const button = document.getElementById(`button${i}`);
+                    button.addEventListener('click', () => {
+                        addNumber(i);
+                        updateChart(); // Update the chart on every button press
+                    });
+                }
+        
+                // Display the initially stored array and update the chart
+                displayArray();
+                updateChart();
             </script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
+			
+            
+            
+            <script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
