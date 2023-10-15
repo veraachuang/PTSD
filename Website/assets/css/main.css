@@ -3724,16 +3724,17 @@
                 }
                 
                 #journal-entry {
-                    width: 300px;
+                    width: 500px;
                     height: 200px;
                     padding: 10px;
                     margin-bottom: 10px;
                 }
                 
                 #save-button {
-                    padding: 10px 20px;
-                    background-color: #4CAF50;
+                    padding: 10px 30px;
+                    background-color: #d5aaf2;
                     color: white;
                     border: none;
                     cursor: pointer;
+					font-size: 10px;
                 }
