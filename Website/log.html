@@ -178,9 +178,11 @@
         for (let i = 1; i <= 10; i++) {
             const button = document.getElementById(`button${i}`);
             button.addEventListener('click', () => {
+                location.reload();
                 addNumber(i);
                 updateChart(); // Update the chart on every button press
                 refreshPage();
+                location.reload();
             });
         }
 
@@ -188,6 +190,7 @@
         displayArray();
         updateChart();
         refreshPage();
+        location.reload(true);
         
     </script>
 
