@@ -13,7 +13,7 @@
             text-decoration: underline;
         }
     </style>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -49,6 +49,7 @@
                     <ul class="mood-box-header">How would you rate today? Come back tomorrow to see how it compares</ul>
                 </div>
                 <div class="button-container">
+                    <img src="/images/snowball lay down sad.png" alt="snowball sad">
                     <button class="number-button" id="button1">1</button>
                     <button class="number-button" id="button2">2</button>
                     <button class="number-button" id="button3">3</button>
@@ -93,12 +94,17 @@
             saveArrayToLocalStorage(jsonArray); // Save the updated array
             displayArray();
             updateChart();
+            refreshPage();
+
         }
 
         // Function to display the JSON array
         function displayArray() {
             const outputDiv = document.getElementById('output');
             outputDiv.textContent = JSON.stringify(jsonArray, null, 2);
+        }
+        function refreshPage() {
+            location.reload(); // Reload the page
         }
 
         // Function to create and update the bar chart
@@ -154,12 +160,15 @@
             button.addEventListener('click', () => {
                 addNumber(i);
                 updateChart(); // Update the chart on every button press
+                refreshPage();
             });
         }
 
         // Display the initially stored array and update the chart
         displayArray();
         updateChart();
+        refreshPage();
+        
     </script>
 
 
