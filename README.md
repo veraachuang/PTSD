@@ -12,13 +12,9 @@ PTSD is a comprehensive mental health app designed to support and enhance your e
 
 ## Features
 
-### Getting Started
-
-Before you begin using Moodify, download and install the app from your preferred app store. Sign up or log in to access all the features. The app provides a simple and user-friendly interface.
-
 ### Mood Check-In
 
-Regularly checking in on your mood is essential for understanding your emotional well-being. Moodify allows you to record your daily emotions, helping you gain insight into your mental health. 
+Regularly checking in on your mood is essential for understanding your emotional well-being. PTSD allows you to record your daily emotions, helping you gain insight into your mental health. 
 
 - Log your mood with a simple interface.
 - Add notes to your check-ins to capture the context.
