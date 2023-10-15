@@ -43,7 +43,7 @@
 							<h1 class="major" style="margin-bottom: 30px; color: white; font-size: 25px;">Mood Log: A visual representation of your journey to wellbeing</h1>
 							
                             
-                            <div class="mood-box"><ul class="mood-box-header">How would you rate today?</ul></div>
+                            <div class="mood-box"><ul class="mood-box-header">How would you rate today? Come back tomorrow to see how it compares</ul></div>
                             <div class="button-container">
                                 <button class="number-button" id="button1">1</button>
                                 <button class="number-button" id="button2">2</button>
@@ -114,8 +114,18 @@
                                 beginAtZero: true
                             }
                         }
+                         
                     };
                     const barChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: data,
+                        options: options
+                    });
+                    if (window.barChart) {
+                        window.barChart.destroy();
+                    }
+
+                    window.barChart = new Chart(ctx, {
                         type: 'bar',
                         data: data,
                         options: options
