@@ -113,8 +113,9 @@
         function updateChart() {
             const canvas = document.getElementById('barChart');
             const ctx = canvas.getContext('2d');
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             const data = {
-                labels: jsonArray.map((value, index) => index + 1),
+                labels: daysOfWeek,
                 datasets: [{
                     label: '',
                     data: jsonArray,
@@ -124,7 +125,17 @@
             const options = {
                 scales: {
                     y: {
+                        min: 1,  // Set the minimum value for the y-axis
+                        max: 10, // Set the maximum value for the y-axis
                         beginAtZero: true
+                    },
+                    x: {
+                        ticks: {
+                            color: 'white',  // Set label color to white
+                            font: {
+                                size: 14  // Set label font size
+                            }
+                        }
                     }
                 }
 
