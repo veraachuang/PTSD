@@ -98,7 +98,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #f1dc21;
+		background: #312450;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -175,7 +175,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #ecc735;
+		color: #ffffff;
 		font-weight: bold;
 		line-height: 1.5;
 		margin: 0 0 0.5em 0;
@@ -282,7 +282,7 @@ input, select, textarea {
 	}
 
 	code {
-		background: rgba(232, 197, 25, 0.05);
+		background: rgba(255, 255, 255, 0.05);
 		border-radius: 0.25em;
 		border: solid 1px rgba(255, 255, 255, 0.15);
 		font-family: "Courier New", monospace;
@@ -2613,6 +2613,23 @@ input, select, textarea {
 				width: 100%;
 			}
 
+			.quiz-container {
+				text-align: center;
+				margin: 20px;
+			}
+			
+			.question-container {
+				max-width: 500px;
+				margin: 0 auto;
+			}
+			
+			button {
+				padding: 10px 20px;
+				background-color: #3498db;
+				color: #fff;
+				border: none;
+				cursor: pointer;
+			}
 /* List */
 
 	ol {
@@ -2867,7 +2884,7 @@ input, select, textarea {
 	}
 
 	header p {
-		color: rgba(255, 255, 255, 0.897);
+		color: rgba(255, 255, 255, 0.35);
 		position: relative;
 		margin: 0 0 1.5em 0;
 	}
@@ -3048,7 +3065,11 @@ input, select, textarea {
 			-ms-justify-content: center;
 			justify-content: center;
 			width: 50em;
+
 		}
+
+		
+		
 
 			.spotlights > section > .content > .inner {
 				-moz-transform: translateX(0) translateY(0);
@@ -3376,7 +3397,7 @@ input, select, textarea {
 
 		#header > .title {
 			border: 0;
-			color: #ebc7c7;
+			color: #ffffff;
 			display: block;
 			font-size: 1.25em;
 			font-weight: bold;
@@ -3482,24 +3503,6 @@ input, select, textarea {
 				padding-top: 0;
 			}
 
-		}
-
-		.quiz-container {
-			text-align: center;
-			margin: 20px;
-		}
-		
-		.question-container {
-			max-width: 500px;
-			margin: 0 auto;
-		}
-		
-		button {
-			padding: 10px 20px;
-			background-color: #569ac7;
-			color: #fff;
-			border: none;
-			cursor: pointer;
 		}
 
 	#header + #wrapper > .wrapper > .inner {
