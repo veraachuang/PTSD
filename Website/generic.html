@@ -9,8 +9,9 @@
 		<title>Generic - Hyperspace by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" type="text/css" href="genstyle.css">
+
 	</head>
 	<body class="is-preload">
 
@@ -20,63 +21,39 @@
 				<nav>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li><a href="generic.html" class="active">Generic</a></li>
-						<li><a href="elements.html">Elements</a></li>
+						<li><a href="generic.html" class="active">Survey</a></li>
+						<li><a href="elements.html">Mood Tracker</a></li>
 						<li><a href="resources.html">Health Resources</a></li>
 
 					</ul>
 				</nav>
 			</header>
 
-		<!-- Wrapper -->
 
-	
 
-			<div id="wrapper"
 
-				<!-- Main -->
-					<section id="main" class="wrapper">
-						<div class="inner">
-							<h1 class="major">Tell us more...</h1>
-						
-							<p>Take a couple minutes to answer a few questions so we can know you better</p>
-						</div>
-					</section>
+<h1>Hello,</h1>
+<form id="quiz-form">
+    <p>How are you feeling today?</p>
+    <input type="text" id="answer" placeholder="Enter your answer here">
+    <input type="submit" value="Submit">
+</form>
 
-			</div>
-			<!DOCTYPE html>
-			<html>
-			<head>
-					<link rel="stylesheet" type="text/css" href="styles.css">
-			</head>
-			<body>
-				<div class="quiz-container">
-					<h1>What do you need most right now?</h1>
-			<div id="quiz" class="question-container"></div>
-			</div>
+<script>
+    document.getElementById('quiz-form').addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent form submission
 
-			
-    <script src="quiz.js"></script>
-</body>
+        const answer = document.getElementById('answer').value.toLowerCase();
 
-</html>
-		<!-- Footer -->
-			<footer id="footer" class="wrapper alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-					</ul>
-				</div>
-			</footer>
+        let outcome = '';
+        if (answer === 'happy') {
+            outcome = 'I am glad you feel happy today! Reflect on something that made you feel happy :)';
+        } else {
+            outcome = 'I want to know more of why you feel that way. Please click the chat box in the bottom right corner to talk!';
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        document.getElementById('result').textContent = outcome;
+    });
+</script>
 
-	</body>
-</html>
+<p id="result"></p>
