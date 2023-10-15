@@ -37,38 +37,40 @@
     </header>
 
     <!-- Wrapper -->
-    <div id="wrapper">
+	<div id="wrapper">
 
-        <!-- Main -->
-        <section id="main" class="wrapper">
-            <div class="inner">
-                <h1 style="line-height: 0.5;">Hello,</h1>
-                <h3 style="line-height: 2.5;">How are your feeling today?</h3>
-                <input type="text" id="answer" placeholder="Enter your answer here">
-                <input type="submit" value="Submit">
-                <script>
-                    document.getElementById('quiz-form').addEventListener('submit', function(e) {
-                        e.preventDefault(); // Prevent form submission
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="inner">
+				<h1 style="line-height: 0.5;">Hello,</h1>
+				<h3 style="line-height: 2;">How are you feeling today?</h3>
+				<form id="quiz-form">
+					<input type="text" id="answer" placeholder="Enter your answer here">
+					<input type="submit" value="Submit">
+				</form>
+				<script>
+					document.getElementById('quiz-form').addEventListener('submit', function(e) {
+						e.preventDefault(); // Prevent form submission
+	
+						const answer = document.getElementById('answer').value.toLowerCase();
+	
+						let outcome = '';
+						if (answer === 'happy') {
+							outcome = 'I am glad you feel happy today! Reflect on something that made you feel happy :)';
+						} else {
+							outcome = 'I want to know more about why you feel that way. Please click the chat box in the bottom right corner to talk!';
+						}
+	
+						document.getElementById('result').textContent = outcome;
+					});
+				</script>
+				<p id="result"></p>
+			</div>
+		</section>
+	</div>
+	
 
-                        const answer = document.getElementById('answer').value.toLowerCase();
 
-                        let outcome = '';
-                        if (answer === 'happy') {
-                            outcome = 'I am glad you feel happy today! Reflect on something that made you feel happy :)';
-                        } else {
-                            outcome = 'I want to know more of why you feel that way. Please click the chat box in the bottom right corner to talk!';
-                        }
-
-                        document.getElementById('result').textContent = outcome;
-                    });
-                </script>
-                <p id="result"></p>
-
-
-            </div>
-        </section>
-
-    </div>
 
     <!-- Footer -->
     <footer id="footer" class="wrapper alt">
