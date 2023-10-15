@@ -277,7 +277,7 @@
                 h4,
                 h5,
                 h6 {
-                    color: #ffffff;
+                    color: #f9f8f8;
                     font-weight: bold;
                     line-height: 1.5;
                     margin: 0 0 0.5em 0;
@@ -2441,11 +2441,15 @@
                 .image img {
                     border-radius: 0.25em;
                     display: block;
+					border-top-left-radius: 100px;
+  					border-bottom-right-radius: 10px;
                 }
                 
                 .image.left,
                 .image.right {
                     max-width: 40%;
+					border-top-left-radius: 100px;
+  					border-bottom-right-radius: 10px;
                 }
                 
                 .image.left img,
@@ -2457,6 +2461,7 @@
                     float: left;
                     margin: 0 1.5em 1em 0;
                     top: 0.25em;
+  
                 }
                 
                 .image.right {
